@@ -1,0 +1,5 @@
+aiogram>=3.7.0
+redis>=5.0.4
+SQLAlchemy>=2.0.30
+asyncpg>=0.29.0
+pydantic-settings>=2.3.3
