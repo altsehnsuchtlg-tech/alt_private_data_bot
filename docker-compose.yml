@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  bot:
+    build: .
+    command: python -m app.main
+    env_file:
+      - .env
+    depends_on:
+      - redis
+      - postgres
+
+  worker:
+    build: .
+    command: python -m app.workers.worker
+    env_file:
+      - .env
+    depends_on:
+      - redis
+      - postgres
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: tg_bot
+      POSTGRES_USER: tg_user
+      POSTGRES_PASSWORD: tg_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

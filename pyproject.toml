@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=70", "wheel", "pybind11>=2.12"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "telegram-bot-skeleton"
+version = "0.1.0"
+description = "Telegram bot scaffold with Python orchestration and C++ extension placeholder."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "aiogram>=3.7.0",
+    "redis>=5.0.4",
+    "SQLAlchemy>=2.0.30",
+    "asyncpg>=0.29.0",
+    "pydantic-settings>=2.3.3",
+]
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+include = ["app*"]
