@@ -1,12 +1,46 @@
+# Local environment
+.env
+.env.*
+!.env.example
+
+# Virtual environments
 .venv/
+.venv-*/
+venv/
+env/
+
+# IDE / OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Python cache
 __pycache__/
+**/__pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+# Test / type-check cache
 .pytest_cache/
 .mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Build artifacts
 build/
 dist/
 *.egg-info/
-.env
+*.so
+
+# Runtime output
 *.log
+*.err
+*.pid
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3

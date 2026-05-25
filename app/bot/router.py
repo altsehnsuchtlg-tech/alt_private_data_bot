@@ -1,10 +1,10 @@
 from aiogram import Router
 
-from app.bot.handlers.job_result import router as job_result_router
-from app.bot.handlers.native_job import router as native_job_router
+from app.bot.handlers.chat import router as chat_router
 from app.bot.handlers.start import router as start_router
 
+# 主路由，聚合所有子路由
 main_router = Router()
+# 按优先级顺序注册子路由
 main_router.include_router(start_router)
-main_router.include_router(native_job_router)
-main_router.include_router(job_result_router)
+main_router.include_router(chat_router)

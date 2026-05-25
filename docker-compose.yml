@@ -2,27 +2,14 @@ version: "3.9"
 
 services:
   bot:
-    build: .
+    build:
+      context: .
+      network: host
     command: python -m app.main
     env_file:
       - .env
     depends_on:
-      - redis
       - postgres
-
-  worker:
-    build: .
-    command: python -m app.workers.worker
-    env_file:
-      - .env
-    depends_on:
-      - redis
-      - postgres
-
-  redis:
-    image: redis:7-alpine
-    ports:
-      - "6379:6379"
 
   postgres:
     image: postgres:16-alpine

@@ -9,4 +9,5 @@ router = Router()
 
 @router.message(CommandStart())
 async def start_handler(message: Message) -> None:
+    """处理 /start 命令，返回欢迎消息。"""
     await message.answer(build_start_message(message.from_user))
